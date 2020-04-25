@@ -17,7 +17,7 @@ const Blog = ({ addVote, handleClick, blogs }) => {
             {blog.votes.toString()} votes
           </ul>
           <ul>
-          <button value={addVote} onClick={handleClick}>vote</button>
+          {/* <button value={addVote} onClick={handleClick}>vote</button> */}
           </ul>
         </ul>
       )}

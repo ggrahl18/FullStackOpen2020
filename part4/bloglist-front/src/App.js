@@ -4,18 +4,18 @@ import BlogForm from './components/BlogForm'
 import TopBlogs from './components/TopBlogs'
 
 const App = (props) => {
-  const [blogs, setBlogs] = useState(props.blogs)
+  const [blogs, setBlogs] = useState([])
   const [newBlog, setNewBlog] = useState('')
-  const [votes, setVotes] = useState(0)
-  // const [votes, setVotes] = useState(props.blogs.votes)
   const [newAuthor, setNewAuthor] = useState('')
   const [newUrl, setNewUrl] = useState('')
+  // const [votes, setVotes] = useState(props.blogs.votes)
+  // const [votes, setVotes] = useState(0)
 
   const addNote = (event) => {
     event.preventDefault()
     console.log('Blog added', event.target.value)
-    // noteFormRef.current.toggleVisibility()
-      const blogObject = {
+      
+    const blogObject = {
       title: newBlog,
       author: newAuthor,
       url: newUrl,
@@ -42,15 +42,15 @@ const App = (props) => {
     setNewUrl(event.target.value)
   }
 
-  const addVote = (event) => {
-    event.preventdefault()
-    console.log('UpVote clicked!', event.target)
-  }
+  // const addVote = (event) => {
+  //   event.preventdefault()
+  //   console.log('UpVote clicked!', event.target)
+  // }
 
-  const handleClick = (event) => {
-    console.log(votes, ' votes')
-    setVotes(votes + 1)
-  } 
+  // const handleClick = (event) => {
+  //   console.log(votes, ' votes')
+  //   setVotes(votes + 1)
+  // } 
 
   return (
     <div>
@@ -59,7 +59,10 @@ const App = (props) => {
           Enter new found blogs that peak your interest and let others vote on them!
         </h4>
         <BlogForm
-          addNote={addNote}
+          onSubmit={addNote}
+          valueBlog={newBlog}
+          valueAuthor={newAuthor}
+          valueUrl={newUrl}
           handleChangeBlog={handleChangeBlog}
           handleChangeAuthor={handleChangeAuthor}
           handleChangeUrl={handleChangeUrl}
@@ -71,8 +74,8 @@ const App = (props) => {
         <h2>All Blogs</h2>
         <Blog
           blogs={props.blogs}
-          value={addVote} 
-          handleClick={handleClick} 
+          // value={addVote} 
+          // handleClick={handleClick} 
         />
     </div>
   )
