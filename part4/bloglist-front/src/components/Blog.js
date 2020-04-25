@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const Blog = ({ blogs, handleClick }) => {
+const Blog = ({ addVote, handleClick, blogs }) => {
   return (
     <div>
       {blogs.map((blog, i) =>
@@ -17,10 +17,7 @@ const Blog = ({ blogs, handleClick }) => {
             {blog.votes.toString()} votes
           </ul>
           <ul>
-            <button type="submit" onClick={handleClick}>vote</button>
-            {/* <form onSubmit={addVote}>
-              <button type="button">Vote Up!</button>
-            </form> */}
+          <button value={addVote} onClick={handleClick}>vote</button>
           </ul>
         </ul>
       )}
