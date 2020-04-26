@@ -23,7 +23,6 @@ const App = (props) => {
     }
 
     setBlogs(blogs.concat(blogObject))
-    console.log('setBlogs is ', blogs[1])
     setNewBlog('')
     setNewAuthor('')
     setNewUrl('')
@@ -44,15 +43,23 @@ const App = (props) => {
     setNewUrl(event.target.value)
   }
 
-  const addVote = (event) => {
-    event.preventdefault()
-    console.log('UpVote clicked!', event.target)
-  }
-
-  const handleClick = (event) => {
+  const addVote = (id) => {
     console.log(votes, ' votes')
     setVotes(votes + 1)
+    const blog = blogs.find((n) => n.id === id)
+    const changedBlog = { ...blog, votes: blog.votes + 1}
+    console.log('changedBlog is ', changedBlog)
   } 
+
+  // const addVote = (id) => {
+  //   console.log(votes, ' votes')
+  //   setVotes(votes + 1)
+  //   // const blog = blogs.find((n) => n.id === id)
+  //   // const changedBlog = { ...blog, votes: blog.votes + 1}
+  //   // console.log('changedBlog is ', blog)
+  //   // setBlogs(blogs.concat(changedBlog))
+  //   // console.log('changedBlog is ', changedBlog)
+  // } 
 
   return (
     <div>
@@ -74,10 +81,10 @@ const App = (props) => {
         <TopBlogs />
 
         <h2>All Blogs</h2>
-        <Blog
+        ​<Blog
           blogs={blogs}
-          valueVote={addVote}
-          handleClick={handleClick} 
+          addVote={addVote}
+          votes={votes}
         />
     </div>
   )
