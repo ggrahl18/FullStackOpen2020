@@ -76,7 +76,7 @@ const App = (props) => {
         <h2>All Blogs</h2>
         <Blog
           blogs={blogs}
-          value={addVote} 
+          valueVote={addVote}
           handleClick={handleClick} 
         />
     </div>

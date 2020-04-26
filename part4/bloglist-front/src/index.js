@@ -8,21 +8,21 @@ const blogs = [
     author: 'Andrew Skurka',
     title: 'Andrew Skurka: Hard-won insights from out there',
     url: 'https://andrewskurka.com/',
-    votes: 6 
+    votes: 0 
   },
   {
     id: 2,
     author: 'Alan Dixon',
     title: 'ULTRALIGHT BACKPACKING & HIKING',
     url: 'https://www.adventurealan.com/',
-    votes: 4 
+    votes: 0 
   },
   {
     id: 3,
     author: 'Derek Hansen',
     title: 'The Ultimate Hang',
     url: 'https://theultimatehang.com/blog/',
-    votes: 3 
+    votes: 0 
   }
 ]
 
