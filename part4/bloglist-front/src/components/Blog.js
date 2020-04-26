@@ -1,10 +1,11 @@
 import React from 'react'
 
 
-const Blog = ({ addVote, handleClick, blogs }) => {
+const Blog = (props) => {
+  // const Blog = ({ addVote, handleClick, blogs }) => {
   return (
     <div>
-      {blogs.map((blog, i) =>
+      {props.blogs.map((blog, i) =>
         <ul key={i}>
           <h4>{blog.title}</h4>
           <ul>
@@ -17,7 +18,7 @@ const Blog = ({ addVote, handleClick, blogs }) => {
             {blog.votes.toString()} votes
           </ul>
           <ul>
-          {/* <button value={addVote} onClick={handleClick}>vote</button> */}
+          <button value={props.addVote} onClick={props.handleClick}>vote</button>
           </ul>
         </ul>
       )}

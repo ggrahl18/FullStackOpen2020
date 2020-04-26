@@ -4,12 +4,11 @@ import BlogForm from './components/BlogForm'
 import TopBlogs from './components/TopBlogs'
 
 const App = (props) => {
-  const [blogs, setBlogs] = useState([])
+  const [blogs, setBlogs] = useState(props.blogs)
   const [newBlog, setNewBlog] = useState('')
   const [newAuthor, setNewAuthor] = useState('')
   const [newUrl, setNewUrl] = useState('')
-  // const [votes, setVotes] = useState(props.blogs.votes)
-  // const [votes, setVotes] = useState(0)
+  const [votes, setVotes] = useState(0)
 
   const addNote = (event) => {
     event.preventDefault()
@@ -19,12 +18,15 @@ const App = (props) => {
       title: newBlog,
       author: newAuthor,
       url: newUrl,
-      // votes: 0,
+      votes: 0,
       id: blogs.length + 1
     }
 
     setBlogs(blogs.concat(blogObject))
+    console.log('setBlogs is ', blogs[1])
     setNewBlog('')
+    setNewAuthor('')
+    setNewUrl('')
   }
 
   const handleChangeBlog = (event) => {
@@ -42,15 +44,15 @@ const App = (props) => {
     setNewUrl(event.target.value)
   }
 
-  // const addVote = (event) => {
-  //   event.preventdefault()
-  //   console.log('UpVote clicked!', event.target)
-  // }
+  const addVote = (event) => {
+    event.preventdefault()
+    console.log('UpVote clicked!', event.target)
+  }
 
-  // const handleClick = (event) => {
-  //   console.log(votes, ' votes')
-  //   setVotes(votes + 1)
-  // } 
+  const handleClick = (event) => {
+    console.log(votes, ' votes')
+    setVotes(votes + 1)
+  } 
 
   return (
     <div>
@@ -73,9 +75,9 @@ const App = (props) => {
 
         <h2>All Blogs</h2>
         <Blog
-          blogs={props.blogs}
-          // value={addVote} 
-          // handleClick={handleClick} 
+          blogs={blogs}
+          value={addVote} 
+          handleClick={handleClick} 
         />
     </div>
   )

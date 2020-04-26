@@ -27,9 +27,7 @@ const blogs = [
 ]
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App blogs={blogs}/>
-  </React.StrictMode>,
+    <App blogs={blogs}/>,
   document.getElementById('root')
 );
 
