@@ -1,26 +1,22 @@
 
 import React from 'react'
 
-const Blog = ({ blogs, addVote }) => {
-
+const Blog = ({ title, author, url, votes, addVote }) => {
   return (
     <div>
-      {blogs.map((b) =>
-        <ul key={b.id}>
-          <h4>{b.title}</h4>
-          <ul>
-            by: {b.author}
-          </ul>
-          <ul>
-            {b.url}
-          </ul>
-          <ul>
-            {b.votes} like
-          </ul>
-          <ul>
-          <button onClick={addVote}>vote</button>          </ul>
+        <h4>{title}</h4>
+        <ul>
+          by: {author}
         </ul>
-      )}
+        <ul>
+          {url}
+        </ul>
+        <ul>
+          {votes} votes
+        </ul>
+        <ul>
+        <button onClick={addVote}>vote</button>          
+        </ul>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React , { useState } from 'react';
-import Blog from './components/Blog'
+import BlogAll from './components/BlogAll'
 import BlogForm from './components/BlogForm'
 import TopBlogs from './components/TopBlogs'
 
@@ -46,27 +46,15 @@ const App = (props) => {
   const addVote = (id) => {
     console.log(votes, ' votes')
     setVotes(votes + 1)
-    const blog = blogs.find((n) => n.id === id)
-    const changedBlog = { ...blog, votes: blog.votes + 1}
-    console.log('changedBlog is ', changedBlog)
+    // const blog = blogs.find((n) => n.id === id)
+    // const changedBlog = { ...blog, votes: blog.votes + 1}
+    // console.log('changedBlog is ', changedBlog)
   } 
-
-  // const addVote = (id) => {
-  //   console.log(votes, ' votes')
-  //   setVotes(votes + 1)
-  //   // const blog = blogs.find((n) => n.id === id)
-  //   // const changedBlog = { ...blog, votes: blog.votes + 1}
-  //   // console.log('changedBlog is ', blog)
-  //   // setBlogs(blogs.concat(changedBlog))
-  //   // console.log('changedBlog is ', changedBlog)
-  // } 
 
   return (
     <div>
       <h1>Blog Logger</h1>
-        <h4>
           Enter new found blogs that peak your interest and let others vote on them!
-        </h4>
         <BlogForm
           onSubmit={addNote}
           valueBlog={newBlog}
@@ -81,13 +69,19 @@ const App = (props) => {
         <TopBlogs />
 
         <h2>All Blogs</h2>
-        ​<Blog
+        <BlogAll
+          blogs={blogs}
+          addVote={addVote}
+          id={props.id}
+          votes={props.votes}
+        />
+        {/* ​<Blog
           blogs={blogs}
           addVote={addVote}
           votes={votes}
-        />
+        /> */}
     </div>
   )
 }
 
-export default App;
+export default App

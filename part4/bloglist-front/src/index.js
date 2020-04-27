@@ -1,25 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-// import axios from 'axios'
-
-// const promise = axios.get('http://localhost:3001/blogs')
-
-// promise.then(response => {
-//   console.log(response)
-// })
-
-// axios.get('http://localhost:3001/blogs').then(reponse => {
-//     const blogs = response.data
-//     console.log(blogs)
-//   })
-
-  // axios
-  // .get('http://localhost:3001/blogs')
-  // .then(response => {
-  //   const blogs = response.data
-  //   console.log(blogs)
-  // })
+import App from './App'
 
 const blogs = [
   {
