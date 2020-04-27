@@ -46,14 +46,9 @@ const App = (props) => {
   const addVote = (id) => {
     const blog = blogs.find((n) => n.id === id)
     const changedBlog = { ...blog, votes: blog.votes + 1}
-    console.log('index is ', id)
+    console.log('changedBlog ', changedBlog)
     console.log(votes, ' votes')
-    setBlogs(blogs.concat(changedBlog))
-    // setBlogs(blogs.concat(changedBlog.id))
-    // setBlogs(blogs.map(blog => blog.id !== changedBlog ? blog : changedBlog))
-    // setBlogs(blogs.map(changedBlog => changedBlog.id))
-    // blogs.concat(changedBlog)
-    // setBlogs(blogs.map(blog => blog.id.concat(changedBlog)))
+    setBlogs(blogs.map(blog => blog.id !== id ? blog: changedBlog))
   } 
 
   return (
