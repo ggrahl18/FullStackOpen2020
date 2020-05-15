@@ -7,14 +7,14 @@ const Blog = ({ title, author, url, votes, addVote, removeBlog }) => {
   const showWhenVisible = { display: moreBlogVisible ? '' : 'none' }
 
   return (
-    <div className="Blog">
-      <div style={hideWhenVisibile}>
-        {title}
+    <div>
+      <div style={hideWhenVisibile} className="BlogShow">
+        {title} {author}
         <button onClick={() => setMoreBlogVisible(true)}>show more</button>
         <button className="remove" onClick={removeBlog}>remove</button>
       </div>
 
-      <div style={showWhenVisible}>
+      <div style={showWhenVisible} className="BlogHide">
         <ul>
           {title}
           <button onClick={() => setMoreBlogVisible(false)}>show less</button>
@@ -26,7 +26,7 @@ const Blog = ({ title, author, url, votes, addVote, removeBlog }) => {
         <ul>
           <a href={url}> {url}</a>
         </ul>
-        <ul className="votes">
+        <ul className="vote-button">
           {votes} votes <button onClick={addVote}>vote</button>
         </ul>
       </div>

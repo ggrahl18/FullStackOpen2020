@@ -3,7 +3,7 @@ import Blog from './Blog'
 
 const BlogAll = ({ blogs, addVote, removeBlog }) => {
   return (
-    <div className="blog">
+    <div className="blogs">
       {blogs.sort((a, b) => b.votes - a.votes).map((b) =>
         <Blog
           key={b.id}
