@@ -118,16 +118,10 @@ const App = (props) => {
 
       messageWith('login successful!')
       console.log('Login successful!')
-      setTimeout(() => {
-        messageWith(null)
-      }, 5000)
     }
     catch (exception) {
       messageWith('Incorrect login!', 'error')
       console.log('Incorrect login!')
-      setTimeout(() => {
-        messageWith(null)
-      }, 5000)
     }
   }
 
@@ -173,11 +167,12 @@ const App = (props) => {
       <h1>Blog Logger</h1>
       <p>Enter new found blogs that peak your interest and let others vote on them!</p>
 
+      <Notifications message={message} />
+
       {user === null ?
         loginForm() :
         <div>
           <p className='userName'>{user.name} logged in</p>
-          <Notifications message={message} />
           <button onClick={handleLogout}>log out</button>
           {blogForm()}
         </div>

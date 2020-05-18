@@ -9,16 +9,16 @@ const Blog = ({ title, author, url, votes, addVote, removeBlog }) => {
   return (
     <div>
       <div style={hideWhenVisibile} className="BlogShow">
-        {title} {author}
-        <button onClick={() => setMoreBlogVisible(true)}>show more</button>
-        <button className="remove" onClick={removeBlog}>remove</button>
+        {title} - {author}
+        <button id='showmore-button' onClick={() => setMoreBlogVisible(true)}>show more</button>
+        <button id='remove-button' className="remove" onClick={removeBlog}>remove</button>
       </div>
 
       <div style={showWhenVisible} className="BlogHide">
         <ul>
           {title}
-          <button onClick={() => setMoreBlogVisible(false)}>show less</button>
-          <button className="remove" onClick={removeBlog}>remove</button>
+          <button id='showless-button' onClick={() => setMoreBlogVisible(false)}>show less</button>
+          <button id='remove-button' className="remove" onClick={removeBlog}>remove</button>
         </ul>
         <ul>
           by: {author}
@@ -27,7 +27,7 @@ const Blog = ({ title, author, url, votes, addVote, removeBlog }) => {
           <a href={url}> {url}</a>
         </ul>
         <ul className="vote-button">
-          {votes} votes <button onClick={addVote}>vote</button>
+          {votes} votes <button id='vote-button' onClick={addVote}>vote</button>
         </ul>
       </div>
     </div>
